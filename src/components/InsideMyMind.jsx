@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { BrainCircuit } from 'lucide-react';
+import brainImg from '../assets/brain.png';
 
 const thoughts = [
   { text: "Ideas keep me awake at night.", top: "20%", left: "10%", delay: 0 },
@@ -50,7 +50,6 @@ const InsideMyMind = () => {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             zIndex: 1,
-            color: 'var(--accent-color)',
             pointerEvents: 'none'
           }}
         >
@@ -62,13 +61,13 @@ const InsideMyMind = () => {
             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
             style={{
               borderRadius: '50%',
-              padding: '3rem',
+              padding: '2rem',
               background: 'rgba(0, 136, 255, 0.05)',
               backdropFilter: 'blur(10px)',
               border: '1px solid rgba(0, 136, 255, 0.2)'
             }}
           >
-            <BrainCircuit size={100} strokeWidth={1} />
+            <img src={brainImg} alt="Brain" style={{ width: '150px', height: '150px', objectFit: 'contain', filter: 'drop-shadow(0 0 20px var(--accent-glow))' }} />
           </motion.div>
         </motion.div>
 
