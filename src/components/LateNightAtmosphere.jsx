@@ -20,13 +20,13 @@ const LateNightAtmosphere = () => {
       <div style={{ position: 'sticky', top: '0', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
         
         {/* Floating Fragments */}
-        <motion.div style={{ position: 'absolute', top: '20%', left: '10%', y: y1, filter: 'blur(4px)', opacity: 0.3, color: 'var(--accent-color)', fontFamily: 'monospace' }}>
+        <motion.div className="floating-fragment" style={{ position: 'absolute', top: '20%', left: '10%', y: y1, filter: 'blur(4px)', opacity: 0.3, color: 'var(--accent-color)', fontFamily: 'monospace' }}>
           {`const vision = new Set();`}
         </motion.div>
-        <motion.div style={{ position: 'absolute', bottom: '20%', right: '15%', y: y2, filter: 'blur(2px)', opacity: 0.4, color: '#fff', fontStyle: 'italic' }}>
+        <motion.div className="floating-fragment" style={{ position: 'absolute', bottom: '20%', right: '15%', y: y2, filter: 'blur(2px)', opacity: 0.4, color: '#fff', fontStyle: 'italic' }}>
           "Just one more iteration."
         </motion.div>
-        <motion.div style={{ position: 'absolute', top: '70%', left: '20%', y: y1, filter: 'blur(6px)', opacity: 0.2, color: 'var(--curaa-accent)', fontFamily: 'monospace', fontSize: '2rem' }}>
+        <motion.div className="floating-fragment" style={{ position: 'absolute', top: '70%', left: '20%', y: y1, filter: 'blur(6px)', opacity: 0.2, color: 'var(--curaa-accent)', fontFamily: 'monospace', fontSize: '2rem' }}>
           {`{ status: "building" }`}
         </motion.div>
         

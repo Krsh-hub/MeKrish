@@ -112,6 +112,26 @@ section {
   text-shadow: 0 0 10px rgba(255,255,255,0.5);
 }
 
+.encrypt-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  background: rgba(2,2,5,0.4);
+  transition: all 0.5s ease;
+  cursor: crosshair;
+}
+
+.encrypt-overlay:hover,
+.encrypt-overlay:active {
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  background: transparent;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -141,6 +161,22 @@ a:hover {
 @media (max-width: 768px) {
   section {
     padding: 0 5vw !important;
+  }
+  
+  /* Cinematic elements */
+  .floating-fragment {
+    display: none !important;
+  }
+  
+  .encrypt-overlay {
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+  
+  .code-bg-fragment {
+    left: 10% !important;
+    top: 5% !important;
+    font-size: 0.6rem !important;
   }
   
   /* Current Build */
