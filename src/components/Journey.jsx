@@ -3,11 +3,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import me3 from '../assets/me3.jpeg';
 
 const milestones = [
-  { year: "2019", title: "The Genesis", desc: "Where the curiosity began. Discovering the world of code, design, and what it means to build." },
-  { year: "2021", title: "Discovering Entrepreneurship", desc: "Realizing that building software wasn't enough. The obsession shifted to building businesses and solving real problems." },
-  { year: "2022", title: "Building CURAA", desc: "Taking the leap into the unknown. Assembling a vision, shaping the product, and embracing the chaos of startup life." },
-  { year: "2023", title: "Setbacks and Pressure", desc: "Learning that growth comes from friction. Dealing with failures, iterating rapidly, and understanding resilience." },
-  { year: "NOW", title: "Rebuilding & Dreaming Bigger", desc: "The journey doesn't end. We are just getting started. Scaling the vision and creating an unforgettable legacy." },
+  { year: "2019", title: "The Spark", desc: "Discovered entrepreneurship back in 8th grade. Realized early on that the obsession wasn't just about building software, but about building businesses and solving real problems." },
+  { year: "2024", title: "College & Evolution", desc: "Got admitted to college for Computer Science Engineering. Expanding my technical toolkit while navigating the early stages of the startup ecosystem." },
+  { year: "2025", title: "Setbacks & Inception", desc: "A brutal setback year on all fronts. But pressure creates clarity. Learned hard lessons, doubled down on my convictions, and started building CURAA from the ground up." },
+  { year: "2026", title: "It's Official", desc: "Now 19 and in my 2nd year of college. CURAA officially registered on January 1st, 2026. Taking the leap into the unknown, cementing the vision, and embracing the chaos of startup life." },
+  { year: "NOW", title: "Devoted & Exploring", desc: "Fully devoted to scaling CURAA while aggressively exploring other crazy, ambitious ideas. The journey doesn't end; we're just getting started." },
 ];
 
 const JourneyCard = ({ item, index, total }) => {
