@@ -1,14 +1,16 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import me1 from '../assets/me1.jpeg';
+import F1CarAnimation from './F1CarAnimation';
 
 const Identity = () => {
   const { scrollYProgress } = useScroll();
   const yImage = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
   return (
-    <section id="identity" style={{ padding: '8rem 2rem', position: 'relative' }}>
-      <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+    <section id="identity" style={{ padding: '8rem 2rem', position: 'relative', overflow: 'hidden' }}>
+      <F1CarAnimation />
+      <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center', zIndex: 10 }}>
         
         {/* Left Side: Cinematic Image & Quote */}
         <div style={{ position: 'relative' }}>
