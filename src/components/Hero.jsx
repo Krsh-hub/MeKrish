@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import me2 from '../assets/me2.jpeg';
 
 const taglines = [
   "Building ideas that refuse to stay small.",
@@ -29,6 +30,34 @@ const Hero = () => {
       position: 'relative',
       overflow: 'hidden'
     }}>
+      {/* Background Image Overlay */}
+      <motion.div
+        initial={{ opacity: 0, scale: 1.1 }}
+        animate={{ opacity: 0.15, scale: 1 }}
+        transition={{ duration: 3, ease: 'easeOut' }}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundImage: `url(${me2})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'grayscale(100%)',
+          zIndex: 0
+        }}
+      />
+      <div style={{
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        width: '100%',
+        height: '50%',
+        background: 'linear-gradient(to top, var(--bg-color), transparent)',
+        zIndex: 1
+      }} />
+
       {/* Background glow effects */}
       <motion.div 
         initial={{ opacity: 0 }}

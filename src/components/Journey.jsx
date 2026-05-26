@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import me3 from '../assets/me3.jpeg';
 
 const milestones = [
   { year: "The Genesis", title: "Student Life & Techno India University", desc: "Where the curiosity began. Discovering the world of code, design, and what it means to build." },
@@ -17,10 +18,33 @@ const Journey = () => {
   });
 
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 0.5, 0.5, 0]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   return (
-    <section id="journey" style={{ padding: '8rem 2rem', position: 'relative', background: '#000' }}>
-      <div className="container" ref={containerRef} style={{ position: 'relative', maxWidth: '800px' }}>
+    <section id="journey" style={{ padding: '8rem 2rem', position: 'relative', background: '#000', overflow: 'hidden' }}>
+      
+      {/* Sticky Background Image */}
+      <motion.div
+        style={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          width: '50%',
+          height: '100%',
+          opacity: imageOpacity,
+          scale: imageScale,
+          backgroundImage: `url(${me3})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'grayscale(50%)',
+          zIndex: 0,
+          maskImage: 'linear-gradient(to right, transparent, black 50%)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 50%)'
+        }}
+      />
+
+      <div className="container" ref={containerRef} style={{ position: 'relative', maxWidth: '800px', zIndex: 10 }}>
         
         <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
           <h2 style={{ fontSize: '3rem', color: '#fff' }}>The Cinematic Journey</h2>
