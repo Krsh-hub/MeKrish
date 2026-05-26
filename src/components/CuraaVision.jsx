@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import curaaLogo from '../assets/curaa.jpeg';
 
 const CuraaVision = () => {
   const containerRef = useRef(null);
@@ -48,10 +49,26 @@ const CuraaVision = () => {
           <div style={{ 
             paddingLeft: '2rem', 
             borderLeft: '2px solid var(--curaa-accent)',
-            marginBottom: '3rem'
+            marginBottom: '3rem',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1.5rem'
           }}>
-            <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', lineHeight: '1.8' }}>
-              Healthcare is broken. The architecture is outdated, the user experience is an afterthought, and the system is bleeding efficiency. We are not just building software; we are re-architecting the infrastructure of care.
+            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: '1.8' }}>
+              “CURAA is not just another startup idea — it is an attempt to build something meaningful in a world overloaded with noise.
+            </p>
+            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: '1.8' }}>
+              Built with a future-first mindset, CURAA represents experimentation, innovation, and the obsession to create products that genuinely solve problems instead of simply existing in the market. The vision behind CURAA is deeply rooted in understanding people, simplifying experiences, and building systems that feel human.
+            </p>
+            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: '1.8' }}>
+              For Krishnendu, CURAA is more than work. It is pressure, ambition, sleepless nights, uncertainty, resilience, and the excitement of building something from zero.
+            </p>
+            <p style={{ fontSize: '1.2rem', color: '#fff', lineHeight: '1.8', fontStyle: 'italic', fontWeight: '500' }}>
+              Every decision around CURAA is driven by one question:<br/>
+              ‘Can this create real impact?’
+            </p>
+            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: '1.8' }}>
+              The journey is still unfolding.”
             </p>
           </div>
 
@@ -87,16 +104,36 @@ const CuraaVision = () => {
               scale: scaleImage,
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'flex-end',
+              justifyContent: 'center',
+              alignItems: 'center',
               padding: '3rem',
-              boxShadow: '0 30px 60px rgba(0,0,0,0.8)'
+              boxShadow: '0 30px 60px rgba(0,0,0,0.8)',
+              overflow: 'hidden'
             }}
           >
-            <h3 style={{ color: '#fff', fontSize: '2rem', marginBottom: '1rem' }}>v1.0.0</h3>
-            <div style={{ display: 'flex', gap: '0.5rem' }}>
-              <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'var(--curaa-accent)' }} />
-              <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)' }} />
-              <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)' }} />
+            <motion.img 
+              src={curaaLogo} 
+              alt="CURAA Logo" 
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+              style={{
+                width: '60%',
+                objectFit: 'contain',
+                filter: 'drop-shadow(0 0 30px rgba(255,80,0,0.3))',
+                borderRadius: '50%',
+                zIndex: 2,
+                marginBottom: '2rem'
+              }} 
+            />
+            
+            <div style={{ position: 'absolute', bottom: '2rem', left: '2rem' }}>
+              <h3 style={{ color: '#fff', fontSize: '1.5rem', marginBottom: '0.5rem', fontFamily: 'var(--font-handwritten)', transform: 'rotate(-5deg)' }}>Building</h3>
+              <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--curaa-accent)' }} />
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)' }} />
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)' }} />
+              </div>
             </div>
           </motion.div>
 

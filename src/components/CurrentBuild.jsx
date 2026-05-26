@@ -50,12 +50,15 @@ const CurrentBuild = () => {
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
-            <span style={{ color: 'var(--accent-color)', fontSize: '0.8rem', letterSpacing: '0.1em' }}>PROJECT 01</span>
-            <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>02:14 AM</span>
+            <span style={{ color: 'var(--accent-color)', fontSize: '0.8rem', letterSpacing: '0.1em' }}>PROJECT 02</span>
+            <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem', fontFamily: 'monospace' }}>STEALTH</span>
           </div>
-          <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>AI-Native Ecosystems</h3>
+          <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Ambitious EdTech Venture</h3>
           <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '0.95rem' }}>
-            Exploring how large language models can act as core infrastructure rather than just wrappers. The architecture is breaking, but the prototype feels alive.
+            Alongside CURAA, Krishnendu is quietly building an ambitious EdTech venture currently under wraps.
+          </p>
+          <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '0.95rem', marginTop: '1rem' }}>
+            The project explores the future of learning through a modern, experience-first approach designed for the next generation of students and creators. Rather than treating education as a rigid system, the vision is to make learning immersive, engaging, emotionally connected, and future-oriented.
           </p>
         </motion.div>
 
@@ -77,11 +80,13 @@ const CurrentBuild = () => {
           }}
         >
           <h3 style={{ fontFamily: 'var(--font-handwritten)', fontSize: '2.5rem', color: '#fff', marginBottom: '1rem', transform: 'rotate(-2deg)' }}>
-            Note to self:
+            Status:
           </h3>
-          <p style={{ color: 'var(--text-main)', fontSize: '1.2rem', lineHeight: '1.5' }}>
-            "Stop waiting for the perfect abstraction. Ship the dirty version, let it break, and learn what actually matters."
-          </p>
+          <div style={{ color: 'var(--text-main)', fontSize: '1.2rem', lineHeight: '1.8' }}>
+            <p>Still in stealth mode.</p>
+            <p>Still being shaped.</p>
+            <p style={{ color: 'var(--accent-color)' }}>Still being built with obsession.</p>
+          </div>
         </motion.div>
 
         {/* Abstract code snippet in background */}
