@@ -54,12 +54,18 @@ const CurrentBuild = () => {
             <span style={{ color: 'var(--accent-color)', fontSize: '0.8rem', letterSpacing: '0.1em' }}>PROJECT 02</span>
             <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem', fontFamily: 'monospace' }}>STEALTH</span>
           </div>
-          <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', filter: 'blur(1px)' }}>[REDACTED] VENTURE</h3>
-          <p style={{ color: 'var(--text-muted)', lineHeight: '1.8', fontSize: '1.1rem' }}>
-            An ambitious EdTech venture currently being built in stealth mode — rethinking how the next generation experiences learning.
-          </p>
-          <p style={{ color: 'var(--text-muted)', lineHeight: '1.8', fontSize: '1.1rem', marginTop: '1rem', fontStyle: 'italic' }}>
-            Details remain strictly confidential.
+          <h3 className="encrypted-text" style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>[REDACTED] VENTURE</h3>
+          <div style={{ position: 'relative', overflow: 'hidden' }}>
+            <p style={{ color: 'var(--text-muted)', lineHeight: '1.8', fontSize: '1.1rem' }}>
+              An ambitious EdTech venture currently being built in stealth mode — rethinking how the next generation experiences learning.
+            </p>
+            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backdropFilter: 'blur(4px)', background: 'rgba(2,2,5,0.4)', transition: 'all 0.5s ease', cursor: 'crosshair' }} 
+                 onMouseEnter={(e) => { e.currentTarget.style.backdropFilter = 'blur(0px)'; e.currentTarget.style.background = 'transparent'; }}
+                 onMouseLeave={(e) => { e.currentTarget.style.backdropFilter = 'blur(4px)'; e.currentTarget.style.background = 'rgba(2,2,5,0.4)'; }}
+            />
+          </div>
+          <p className="encrypted-text" style={{ color: 'var(--accent-color)', lineHeight: '1.8', fontSize: '0.9rem', marginTop: '1rem', fontStyle: 'italic' }}>
+            {'// STATUS: CLASSIFIED'}
           </p>
         </motion.div>
 

@@ -40,10 +40,12 @@ const CuraaVision = () => {
             lineHeight: '0.9',
             marginBottom: '2rem',
             color: '#fff',
-            letterSpacing: '-0.02em'
+            letterSpacing: '-0.02em',
+            position: 'relative'
           }}>
+            <span style={{ position: 'absolute', top: '10px', left: '-10px', opacity: 0.1, filter: 'blur(4px)', color: 'var(--curaa-accent)', pointerEvents: 'none' }}>Building CURAA.</span>
             Building <br/>
-            <span style={{ color: 'var(--curaa-accent)' }}>CURAA.</span>
+            <span style={{ color: 'var(--curaa-accent)', filter: 'drop-shadow(0 0 20px rgba(255,80,0,0.4))' }}>CURAA.</span>
           </h2>
           
           <div style={{ 
@@ -83,6 +85,10 @@ const CuraaVision = () => {
 
         {/* Right: Abstract representation of CURAA */}
         <div className="curaa-image-container" style={{ position: 'relative', height: '600px', width: '100%' }}>
+          {/* Gritty floating glass shards */}
+          <motion.div style={{ position: 'absolute', top: '5%', left: '0%', width: '150px', height: '200px', background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(10px)', transform: 'rotate(15deg)', zIndex: 5, border: '1px solid rgba(255,255,255,0.05)', y: yText }} />
+          <motion.div style={{ position: 'absolute', bottom: '15%', right: '-5%', width: '180px', height: '180px', background: 'rgba(255,80,0,0.05)', backdropFilter: 'blur(15px)', transform: 'rotate(-20deg)', zIndex: 5, border: '1px solid rgba(255,80,0,0.1)', y: useTransform(scrollYProgress, [0, 1], [-50, 150]) }} />
+          
           <motion.div 
             style={{
               position: 'absolute',

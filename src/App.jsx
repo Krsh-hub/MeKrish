@@ -8,6 +8,8 @@ import InsideMyMind from './components/InsideMyMind';
 import Journey from './components/Journey';
 import Contact from './components/Contact';
 import CustomCursor from './components/CustomCursor';
+import CinematicQuote from './components/CinematicQuote';
+import LateNightAtmosphere from './components/LateNightAtmosphere';
 
 function App() {
   
@@ -30,9 +32,13 @@ function App() {
       
       <main>
         <Hero />
-        <CurrentBuild />
+        <CinematicQuote quote="Some ideas refuse to let you sleep." />
         <Identity />
+        <CinematicQuote quote="Nothing meaningful is built comfortably." />
+        <LateNightAtmosphere />
         <CuraaVision />
+        <CurrentBuild />
+        <CinematicQuote quote="The future is created by people irrational enough to try." />
         <InsideMyMind />
         <Journey />
         <Contact />
