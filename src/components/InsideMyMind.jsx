@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { BrainCircuit } from 'lucide-react';
 
 const thoughts = [
   { text: "Ideas keep me awake at night.", top: "20%", left: "10%", delay: 0 },
@@ -37,19 +38,57 @@ const InsideMyMind = () => {
           </h2>
         </div>
 
-        {/* Floating Thoughts */}
+        {/* Central Brain Core */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: false }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 1,
+            color: 'var(--accent-color)',
+            pointerEvents: 'none'
+          }}
+        >
+          <motion.div
+            animate={{ 
+              boxShadow: ['0 0 40px var(--accent-glow)', '0 0 100px var(--accent-glow)', '0 0 40px var(--accent-glow)'],
+              scale: [1, 1.05, 1]
+            }}
+            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+            style={{
+              borderRadius: '50%',
+              padding: '3rem',
+              background: 'rgba(0, 136, 255, 0.05)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(0, 136, 255, 0.2)'
+            }}
+          >
+            <BrainCircuit size={100} strokeWidth={1} />
+          </motion.div>
+        </motion.div>
+
+        {/* Floating Thoughts emerging from the center */}
         {thoughts.map((thought, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: false, margin: "-50px" }}
-            transition={{ duration: 1, delay: thought.delay }}
+            initial={{ opacity: 0, scale: 0, top: '50%', left: '50%' }}
+            whileInView={{ opacity: 1, scale: 1, top: thought.top, left: thought.left }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ 
+              duration: 1.5, 
+              delay: thought.delay, 
+              type: "spring", 
+              bounce: 0.4 
+            }}
             style={{
               position: 'absolute',
-              top: thought.top,
-              left: thought.left,
               y: index % 2 === 0 ? y : useTransform(scrollYProgress, [0, 1], [-100, 100]), // Parallax effect
+              zIndex: 2
             }}
           >
             <motion.div
@@ -69,7 +108,8 @@ const InsideMyMind = () => {
                 color: '#fff',
                 whiteSpace: 'nowrap',
                 boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
-                cursor: 'default'
+                cursor: 'default',
+                transform: 'translate(-50%, -50%)' // Center the thought card on its coordinate
               }}
               whileHover={{ 
                 scale: 1.05, 
