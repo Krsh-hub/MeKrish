@@ -38,38 +38,26 @@ const InsideMyMind = () => {
           </h2>
         </div>
 
-        {/* Central Brain Core */}
+        {/* Background Brain Image Overlay */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 1.1 }}
+          whileInView={{ opacity: 0.15, scale: 1 }}
           viewport={{ once: false }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          transition={{ duration: 2, ease: 'easeOut' }}
           style={{
             position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            zIndex: 1,
-            pointerEvents: 'none'
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundImage: `url(${brainImg})`,
+            backgroundSize: 'contain',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            filter: 'drop-shadow(0 0 50px var(--accent-color))',
+            zIndex: 0
           }}
-        >
-          <motion.div
-            animate={{ 
-              boxShadow: ['0 0 40px var(--accent-glow)', '0 0 100px var(--accent-glow)', '0 0 40px var(--accent-glow)'],
-              scale: [1, 1.05, 1]
-            }}
-            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            style={{
-              borderRadius: '50%',
-              padding: '2rem',
-              background: 'rgba(0, 136, 255, 0.05)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(0, 136, 255, 0.2)'
-            }}
-          >
-            <img src={brainImg} alt="Brain" style={{ width: '150px', height: '150px', objectFit: 'contain', filter: 'drop-shadow(0 0 20px var(--accent-glow))' }} />
-          </motion.div>
-        </motion.div>
+        />
 
         {/* Floating Thoughts emerging from the center */}
         {thoughts.map((thought, index) => (
@@ -103,17 +91,22 @@ const InsideMyMind = () => {
               className="glass-panel"
               style={{
                 padding: '1.5rem 2.5rem',
-                fontSize: '1.1rem',
+                fontSize: '1.2rem',
+                fontWeight: '600',
                 color: '#fff',
                 whiteSpace: 'nowrap',
-                boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+                background: 'rgba(255, 102, 0, 0.1)', // Contrasting neon orange tint
+                border: '1px solid rgba(255, 102, 0, 0.5)',
+                boxShadow: '0 20px 40px rgba(255, 102, 0, 0.2), 0 0 20px rgba(255, 102, 0, 0.2) inset',
                 cursor: 'default',
                 transform: 'translate(-50%, -50%)' // Center the thought card on its coordinate
               }}
               whileHover={{ 
-                scale: 1.05, 
-                borderColor: 'var(--accent-color)',
-                color: 'var(--accent-color)',
+                scale: 1.1, 
+                background: 'rgba(255, 102, 0, 0.2)',
+                borderColor: '#ff6600',
+                color: '#fff',
+                boxShadow: '0 30px 60px rgba(255, 102, 0, 0.4), 0 0 30px rgba(255, 102, 0, 0.4) inset',
                 transition: { duration: 0.3 }
               }}
             >
