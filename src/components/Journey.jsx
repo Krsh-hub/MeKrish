@@ -3,113 +3,86 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import me3 from '../assets/me3.jpeg';
 
 const milestones = [
-  { year: "The Genesis", title: "Student Life & Techno India University", desc: "Where the curiosity began. Discovering the world of code, design, and what it means to build." },
-  { year: "The Spark", title: "Discovering Entrepreneurship", desc: "Realizing that building software wasn't enough. The obsession shifted to building businesses and solving real problems." },
-  { year: "The Leap", title: "Building CURAA", desc: "Taking the leap into the unknown. Assembling a vision, shaping the product, and embracing the chaos of startup life." },
-  { year: "The Crucible", title: "Setbacks and Pressure", desc: "Learning that growth comes from friction. Dealing with failures, iterating rapidly, and understanding resilience." },
-  { year: "The Horizon", title: "Rebuilding & Dreaming Bigger", desc: "The journey doesn't end. We are just getting started. Scaling the vision and creating an unforgettable legacy." },
+  { year: "2019", title: "The Genesis", desc: "Where the curiosity began. Discovering the world of code, design, and what it means to build." },
+  { year: "2021", title: "Discovering Entrepreneurship", desc: "Realizing that building software wasn't enough. The obsession shifted to building businesses and solving real problems." },
+  { year: "2022", title: "Building CURAA", desc: "Taking the leap into the unknown. Assembling a vision, shaping the product, and embracing the chaos of startup life." },
+  { year: "2023", title: "Setbacks and Pressure", desc: "Learning that growth comes from friction. Dealing with failures, iterating rapidly, and understanding resilience." },
+  { year: "NOW", title: "Rebuilding & Dreaming Bigger", desc: "The journey doesn't end. We are just getting started. Scaling the vision and creating an unforgettable legacy." },
 ];
 
-const Journey = () => {
-  const containerRef = useRef(null);
+const JourneyCard = ({ item, index, total }) => {
+  const cardRef = useRef(null);
   const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start center", "end center"]
+    target: cardRef,
+    offset: ["start end", "start 20%"]
   });
 
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 0.5, 0.5, 0]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
 
   return (
-    <section id="journey" style={{ padding: '8rem 2rem', position: 'relative', background: '#000', overflow: 'hidden' }}>
+    <motion.div
+      ref={cardRef}
+      style={{
+        position: 'sticky',
+        top: `${20 + index * 5}vh`,
+        padding: '3rem',
+        background: 'rgba(5, 5, 10, 0.95)',
+        border: '1px solid rgba(255,255,255,0.05)',
+        borderRadius: '16px',
+        boxShadow: '0 -20px 40px rgba(0,0,0,0.5)',
+        backdropFilter: 'blur(20px)',
+        scale,
+        opacity,
+        zIndex: index,
+        marginBottom: '40vh', // space between cards
+        display: 'flex',
+        gap: '2rem',
+        alignItems: 'flex-start'
+      }}
+    >
+      <div style={{ fontFamily: 'var(--font-handwritten)', fontSize: '4rem', color: 'var(--accent-color)', lineHeight: 0.8, transform: 'rotate(-5deg)' }}>
+        {item.year}
+      </div>
+      <div>
+        <h3 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#fff' }}>{item.title}</h3>
+        <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', lineHeight: '1.6' }}>{item.desc}</p>
+      </div>
+    </motion.div>
+  );
+};
+
+const Journey = () => {
+  return (
+    <section id="journey" style={{ padding: '10rem 5vw', position: 'relative', background: '#000' }}>
       
       {/* Sticky Background Image */}
-      <motion.div
+      <div
         style={{
           position: 'absolute',
           top: 0,
           right: 0,
-          width: '50%',
+          width: '40%',
           height: '100%',
-          opacity: imageOpacity,
-          scale: imageScale,
           backgroundImage: `url(${me3})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          filter: 'grayscale(50%)',
+          filter: 'grayscale(100%) opacity(0.3)',
           zIndex: 0,
           maskImage: 'linear-gradient(to right, transparent, black 50%)',
           WebkitMaskImage: 'linear-gradient(to right, transparent, black 50%)'
         }}
       />
 
-      <div className="container" ref={containerRef} style={{ position: 'relative', maxWidth: '800px', zIndex: 10 }}>
+      <div style={{ position: 'relative', zIndex: 10, maxWidth: '800px', margin: '0 auto' }}>
         
-        <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-          <h2 style={{ fontSize: '3rem', color: '#fff' }}>The Cinematic Journey</h2>
+        <div style={{ marginBottom: '10rem' }}>
+          <h2 style={{ fontSize: '4vw', color: '#fff', letterSpacing: '-0.02em' }}>The Documentary.</h2>
         </div>
 
-        {/* Timeline Line */}
-        <div style={{
-          position: 'absolute',
-          left: '50px',
-          top: '200px',
-          bottom: '0',
-          width: '2px',
-          background: 'rgba(255,255,255,0.1)',
-          zIndex: 1
-        }}>
-          <motion.div style={{
-            width: '100%',
-            height: lineHeight,
-            background: 'var(--accent-color)',
-            boxShadow: '0 0 15px var(--accent-color)'
-          }} />
-        </div>
-
-        {/* Milestones */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '6rem' }}>
+        <div style={{ position: 'relative', paddingBottom: '20vh' }}>
           {milestones.map((item, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              style={{
-                position: 'relative',
-                paddingLeft: '100px',
-                zIndex: 2
-              }}
-            >
-              {/* Timeline Dot */}
-              <div style={{
-                position: 'absolute',
-                left: '43px',
-                top: '0',
-                width: '16px',
-                height: '16px',
-                borderRadius: '50%',
-                background: '#000',
-                border: '2px solid var(--accent-color)',
-                boxShadow: '0 0 10px var(--accent-glow)'
-              }} />
-
-              <span style={{ 
-                color: 'var(--accent-color)', 
-                fontFamily: 'var(--font-display)', 
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                fontSize: '0.9rem',
-                display: 'block',
-                marginBottom: '0.5rem'
-              }}>
-                {item.year}
-              </span>
-              <h3 style={{ fontSize: '1.8rem', color: '#fff', marginBottom: '1rem' }}>{item.title}</h3>
-              <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '1.1rem' }}>{item.desc}</p>
-            </motion.div>
+            <JourneyCard key={index} item={item} index={index} total={milestones.length} />
           ))}
         </div>
 

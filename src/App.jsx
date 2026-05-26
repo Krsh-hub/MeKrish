@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
+import SmoothScroll from './components/SmoothScroll';
 import Hero from './components/Hero';
+import CurrentBuild from './components/CurrentBuild';
 import Identity from './components/Identity';
 import CuraaVision from './components/CuraaVision';
 import InsideMyMind from './components/InsideMyMind';
@@ -22,19 +24,20 @@ function App() {
   }, []);
 
   return (
-    <>
+    <SmoothScroll>
       <div className="noise-overlay"></div>
       <CustomCursor />
       
       <main>
         <Hero />
+        <CurrentBuild />
         <Identity />
         <CuraaVision />
         <InsideMyMind />
         <Journey />
         <Contact />
       </main>
-    </>
+    </SmoothScroll>
   );
 }
 

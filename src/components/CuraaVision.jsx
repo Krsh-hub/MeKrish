@@ -1,115 +1,124 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const CuraaVision = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const yText = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const scaleImage = useTransform(scrollYProgress, [0, 1], [0.8, 1.1]);
+
   return (
-    <section id="curaa" style={{ padding: '8rem 2rem', position: 'relative' }}>
+    <section ref={containerRef} style={{ padding: '15rem 5vw', position: 'relative', background: '#000', overflow: 'hidden' }}>
       
-      {/* Abstract Background element */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 0.3, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.5 }}
-        style={{
-          position: 'absolute',
-          right: '-10%',
-          top: '20%',
-          width: '600px',
-          height: '600px',
-          background: 'radial-gradient(circle, var(--curaa-glow) 0%, transparent 60%)',
-          filter: 'blur(100px)',
-          zIndex: 0,
-          borderRadius: '50%'
-        }}
-      />
+      {/* Background Grids */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundImage: `
+          linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
+        `,
+        backgroundSize: '100px 100px',
+        opacity: 0.5,
+        zIndex: 0
+      }} />
 
-      <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+      <div style={{ position: 'relative', zIndex: 10, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' }}>
         
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          style={{ marginBottom: '4rem' }}
-        >
-          <h2 className="curaa-glow-text" style={{ fontSize: '3rem', marginBottom: '1rem' }}>
-            CURAA
+        {/* Left: Typography & Vision */}
+        <motion.div style={{ y: yText }}>
+          <h2 style={{ 
+            fontSize: 'clamp(3rem, 6vw, 6rem)', 
+            lineHeight: '0.9',
+            marginBottom: '2rem',
+            color: '#fff',
+            letterSpacing: '-0.02em'
+          }}>
+            Building <br/>
+            <span style={{ color: 'var(--curaa-accent)' }}>CURAA.</span>
           </h2>
-          <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '600px' }}>
-            More than a startup. A movement focused on solving meaningful problems through ambitious thinking and future-focused vision.
-          </p>
-        </motion.div>
-
-        {/* Cinematic Showcase Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          whileHover={{ y: -10, transition: { duration: 0.3 } }}
-          className="glass-panel"
-          style={{
-            padding: '4rem',
-            position: 'relative',
-            overflow: 'hidden',
-            border: '1px solid rgba(255, 102, 0, 0.2)',
-            background: 'linear-gradient(135deg, rgba(255,102,0,0.05) 0%, rgba(0,0,0,0) 100%)'
-          }}
-        >
-          <div style={{ position: 'relative', zIndex: 2 }}>
-            <h3 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#fff' }}>Redefining the standard.</h3>
-            <p style={{ color: 'var(--text-muted)', marginBottom: '3rem', maxWidth: '500px', lineHeight: '1.6' }}>
-              At CURAA, we don't just build products. We engineer experiences that push boundaries. It's about taking bold bets on product innovation and relentless experimentation.
+          
+          <div style={{ 
+            paddingLeft: '2rem', 
+            borderLeft: '2px solid var(--curaa-accent)',
+            marginBottom: '3rem'
+          }}>
+            <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', lineHeight: '1.8' }}>
+              Healthcare is broken. The architecture is outdated, the user experience is an afterthought, and the system is bleeding efficiency. We are not just building software; we are re-architecting the infrastructure of care.
             </p>
-            
-            <a href="#" style={{ 
-              display: 'inline-flex', 
-              alignItems: 'center', 
-              gap: '0.5rem',
-              color: 'var(--curaa-accent)',
-              textTransform: 'uppercase',
-              letterSpacing: '0.1em',
-              fontSize: '0.9rem',
-              fontWeight: '600'
-            }}>
-              Explore Vision <ArrowRight size={16} />
-            </a>
           </div>
 
-          {/* Decorative wireframe/grid in background of card */}
-          <div style={{
-            position: 'absolute',
-            right: '-10%',
-            bottom: '-20%',
-            width: '50%',
-            height: '100%',
-            backgroundImage: 'linear-gradient(rgba(255,102,0,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,102,0,0.1) 1px, transparent 1px)',
-            backgroundSize: '20px 20px',
-            transform: 'perspective(500px) rotateX(45deg)',
-            opacity: 0.5,
-            zIndex: 1
-          }} />
+          <motion.div 
+            whileHover={{ scale: 1.05, x: 10 }}
+            style={{ 
+              display: 'inline-flex', 
+              alignItems: 'center', 
+              gap: '1rem',
+              color: 'var(--curaa-accent)',
+              fontFamily: 'var(--font-handwritten)',
+              fontSize: '1.8rem',
+              cursor: 'pointer'
+            }}
+          >
+            Explore the vision <span>→</span>
+          </motion.div>
         </motion.div>
 
-        {/* Future Ventures Placeholder */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 1 }}
-          style={{
-            marginTop: '4rem',
-            padding: '2rem',
-            borderTop: '1px solid rgba(255,255,255,0.1)',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center'
-          }}
-        >
-          <span style={{ color: 'var(--text-muted)', letterSpacing: '0.1em', textTransform: 'uppercase', fontSize: '0.8rem' }}>01 / Future Ventures</span>
-          <span style={{ fontStyle: 'italic', color: '#fff' }}>Always ideating. Always building.</span>
-        </motion.div>
+        {/* Right: Abstract representation of CURAA */}
+        <div style={{ position: 'relative', height: '600px', width: '100%' }}>
+          <motion.div 
+            style={{
+              position: 'absolute',
+              top: '10%',
+              right: '10%',
+              width: '80%',
+              height: '80%',
+              background: 'linear-gradient(135deg, rgba(255,80,0,0.1), rgba(0,0,0,0))',
+              border: '1px solid rgba(255,80,0,0.2)',
+              borderRadius: '24px',
+              backdropFilter: 'blur(20px)',
+              scale: scaleImage,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end',
+              padding: '3rem',
+              boxShadow: '0 30px 60px rgba(0,0,0,0.8)'
+            }}
+          >
+            <h3 style={{ color: '#fff', fontSize: '2rem', marginBottom: '1rem' }}>v1.0.0</h3>
+            <div style={{ display: 'flex', gap: '0.5rem' }}>
+              <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'var(--curaa-accent)' }} />
+              <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)' }} />
+              <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)' }} />
+            </div>
+          </motion.div>
+
+          <motion.div
+            animate={{ 
+              boxShadow: ['0 0 50px rgba(255,80,0,0.2)', '0 0 150px rgba(255,80,0,0.4)', '0 0 50px rgba(255,80,0,0.2)']
+            }}
+            transition={{ repeat: Infinity, duration: 5 }}
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: '200px',
+              height: '200px',
+              borderRadius: '50%',
+              background: 'radial-gradient(circle, rgba(255,80,0,0.8) 0%, transparent 70%)',
+              filter: 'blur(50px)',
+              zIndex: -1
+            }}
+          />
+        </div>
 
       </div>
     </section>
