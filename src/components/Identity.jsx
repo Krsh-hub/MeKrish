@@ -100,10 +100,10 @@ const Identity = () => {
             backdropFilter: 'blur(5px)'
           }}>
             <p>
-              <strong style={{ color: '#fff' }}>A 19-year-old entrepreneur from India.</strong> Fascinated by the intersection of AI-native products, bold branding, and human creativity.
+              <strong style={{ color: '#fff' }}>An ambitious 19-year-old entrepreneur.</strong> Fascinated by startups, bold branding, AI-native products, football, and boundless creativity.
             </p>
             <p>
-              I am driven by an obsession to build meaningful things. The kind of things that solve real problems, spark emotion, and refuse to be ignored. I thrive in the pressure cooker of startup culture because <span style={{ color: '#fff' }}>pressure creates clarity.</span>
+              I am emotionally driven by a relentless obsession to build meaningful things—products that solve genuine problems and refuse to be ignored. Resilience is my baseline. Despite setbacks, I thrive in the pressure cooker of startup culture because <span style={{ color: '#fff' }}>pressure creates clarity.</span>
             </p>
           </div>
         </motion.div>

@@ -54,21 +54,14 @@ const CuraaVision = () => {
             flexDirection: 'column',
             gap: '1.5rem'
           }}>
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: '1.8' }}>
-              “CURAA is not just another startup idea — it is an attempt to build something meaningful in a world overloaded with noise.
+            <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', lineHeight: '1.8' }}>
+              “CURAA is an attempt to build meaningful solutions in a world overloaded with noise.
             </p>
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: '1.8' }}>
-              Built with a future-first mindset, CURAA represents experimentation, innovation, and the obsession to create products that genuinely solve problems instead of simply existing in the market. The vision behind CURAA is deeply rooted in understanding people, simplifying experiences, and building systems that feel human.
-            </p>
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: '1.8' }}>
-              For Krishnendu, CURAA is more than work. It is pressure, ambition, sleepless nights, uncertainty, resilience, and the excitement of building something from zero.
+            <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', lineHeight: '1.8' }}>
+              It represents experimentation, ambition, resilience, and the obsession to create products that genuinely matter.
             </p>
             <p style={{ fontSize: '1.2rem', color: '#fff', lineHeight: '1.8', fontStyle: 'italic', fontWeight: '500' }}>
-              Every decision around CURAA is driven by one question:<br/>
-              ‘Can this create real impact?’
-            </p>
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: '1.8' }}>
-              The journey is still unfolding.”
+              For Krishnendu, CURAA is more than a startup — it is pressure, sleepless nights, uncertainty, creativity, and belief.”
             </p>
           </div>
 

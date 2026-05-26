@@ -4,10 +4,11 @@ import brainImg from '../assets/brain.png';
 
 const thoughts = [
   { text: "Ideas keep me awake at night.", top: "20%", left: "10%", delay: 0 },
-  { text: "Pressure creates clarity.", top: "60%", left: "15%", delay: 0.2 },
-  { text: "The future belongs to builders.", top: "30%", left: "60%", delay: 0.4 },
-  { text: "Football. Music. Startups. Repeat.", top: "70%", left: "55%", delay: 0.6 },
-  { text: "Still learning. Still building.", top: "45%", left: "35%", delay: 0.8 },
+  { text: "The future belongs to builders.", top: "60%", left: "15%", delay: 0.2 },
+  { text: "Still learning. Still building.", top: "30%", left: "60%", delay: 0.4 },
+  { text: "I romanticize building startups.", top: "70%", left: "55%", delay: 0.6 },
+  { text: "Football. Music. Startups. Repeat.", top: "45%", left: "35%", delay: 0.8 },
+  { text: "I want to create things that outlive me.", top: "15%", left: "70%", delay: 1.0 },
 ];
 
 const InsideMyMind = () => {

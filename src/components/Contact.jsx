@@ -92,7 +92,7 @@ const Contact = () => {
         }}>
           Let's build <br/> 
           <span style={{ color: 'var(--text-muted)' }}>something</span> <br/>
-          <span style={{ fontFamily: 'var(--font-handwritten)', color: 'var(--accent-color)', fontSize: '1.2em' }}>huge.</span>
+          <span style={{ fontFamily: 'var(--font-handwritten)', color: 'var(--accent-color)', fontSize: '1.2em' }}>unforgettable.</span>
         </h2>
         
         <p style={{ color: 'var(--text-muted)', fontSize: '1.5rem', marginBottom: '4rem' }}>

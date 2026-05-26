@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import me2 from '../assets/me2.jpeg';
 
 const Hero = () => {
@@ -12,6 +12,23 @@ const Hero = () => {
   const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacityText = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const yText = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+
+  const phrases = [
+    "Building ideas that refuse to stay small.",
+    "Still building.",
+    "Pressure creates clarity.",
+    "Startup mind. Creative soul.",
+    "Obsessed with impact."
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % phrases.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section ref={containerRef} style={{ 
@@ -75,7 +92,24 @@ const Hero = () => {
               background: 'rgba(255,255,255,0.03)'
             }}
           >
-            Founder
+            Entrepreneur
+          </motion.span>
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            style={{ 
+              padding: '0.4rem 1rem', 
+              border: '1px solid rgba(255,255,255,0.1)', 
+              borderRadius: '20px',
+              fontSize: '0.8rem',
+              textTransform: 'uppercase',
+              letterSpacing: '0.1em',
+              backdropFilter: 'blur(10px)',
+              background: 'rgba(255,255,255,0.03)'
+            }}
+          >
+            Builder
           </motion.span>
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
@@ -93,7 +127,7 @@ const Hero = () => {
               color: 'var(--accent-color)'
             }}
           >
-            Creative Strategist
+            Co-Founder of CURAA
           </motion.span>
         </div>
 
@@ -116,21 +150,28 @@ const Hero = () => {
           }}>DHAR</span>
         </h1>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 1 }}
-          style={{
-            fontFamily: 'var(--font-handwritten)',
-            fontSize: '2rem',
-            color: 'var(--accent-color)',
-            marginTop: '2rem',
-            marginLeft: '5%',
-            transform: 'rotate(-2deg)'
-          }}
-        >
-          building ideas that refuse to stay small.
-        </motion.p>
+        <div style={{ height: '4rem', position: 'relative', marginTop: '2rem', marginLeft: '5%', transform: 'rotate(-2deg)' }}>
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={index}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.6 }}
+              style={{
+                fontFamily: 'var(--font-handwritten)',
+                fontSize: '2rem',
+                color: 'var(--accent-color)',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: 'max-content'
+              }}
+            >
+              {phrases[index]}
+            </motion.p>
+          </AnimatePresence>
+        </div>
       </motion.div>
 
       {/* Floating ambient orb */}

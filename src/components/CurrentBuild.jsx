@@ -54,12 +54,12 @@ const CurrentBuild = () => {
             <span style={{ color: 'var(--accent-color)', fontSize: '0.8rem', letterSpacing: '0.1em' }}>PROJECT 02</span>
             <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem', fontFamily: 'monospace' }}>STEALTH</span>
           </div>
-          <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Ambitious EdTech Venture</h3>
-          <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '0.95rem' }}>
-            Alongside CURAA, Krishnendu is quietly building an ambitious EdTech venture currently under wraps.
+          <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', filter: 'blur(1px)' }}>[REDACTED] VENTURE</h3>
+          <p style={{ color: 'var(--text-muted)', lineHeight: '1.8', fontSize: '1.1rem' }}>
+            An ambitious EdTech venture currently being built in stealth mode — rethinking how the next generation experiences learning.
           </p>
-          <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '0.95rem', marginTop: '1rem' }}>
-            The project explores the future of learning through a modern, experience-first approach designed for the next generation of students and creators. Rather than treating education as a rigid system, the vision is to make learning immersive, engaging, emotionally connected, and future-oriented.
+          <p style={{ color: 'var(--text-muted)', lineHeight: '1.8', fontSize: '1.1rem', marginTop: '1rem', fontStyle: 'italic' }}>
+            Details remain strictly confidential.
           </p>
         </motion.div>
 
