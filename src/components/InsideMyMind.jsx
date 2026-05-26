@@ -51,7 +51,7 @@ const InsideMyMind = () => {
             width: '100%',
             height: '100%',
             backgroundImage: `url(${brainImg})`,
-            backgroundSize: 'contain',
+            backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             filter: 'drop-shadow(0 0 50px var(--accent-color))',
