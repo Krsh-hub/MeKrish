@@ -30,10 +30,11 @@ const Identity = () => {
         OBSESSED
       </motion.div>
 
-      <div style={{ position: 'relative', zIndex: 10, maxWidth: '1400px', margin: '0 auto' }}>
+      <div className="identity-container" style={{ position: 'relative', zIndex: 10, maxWidth: '1400px', margin: '0 auto' }}>
         
         {/* Broken Grid Image */}
         <motion.div
+          className="identity-image-container"
           style={{ 
             y: yImage,
             width: '40vw',
@@ -71,6 +72,7 @@ const Identity = () => {
 
         {/* Floating Text Blocks */}
         <motion.div 
+          className="identity-text-container"
           style={{ y: yText, position: 'relative', zIndex: 2, width: '60%', paddingTop: '10vh' }}
         >
           <h2 style={{ 

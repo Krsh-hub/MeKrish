@@ -29,10 +29,11 @@ const CurrentBuild = () => {
         <div style={{ width: '100px', height: '1px', background: 'var(--text-muted)' }} />
       </div>
 
-      <div style={{ position: 'relative', minHeight: '60vh' }}>
+      <div className="current-build-notes" style={{ position: 'relative', minHeight: '60vh' }}>
         
         {/* Sticky Note 1 */}
         <motion.div
+          className="sticky-note-1"
           style={{
             position: 'absolute',
             top: '10%',
@@ -64,6 +65,7 @@ const CurrentBuild = () => {
 
         {/* Sticky Note 2 */}
         <motion.div
+          className="sticky-note-2"
           style={{
             position: 'absolute',
             top: '30%',

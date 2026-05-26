@@ -31,7 +31,7 @@ const CuraaVision = () => {
         zIndex: 0
       }} />
 
-      <div style={{ position: 'relative', zIndex: 10, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' }}>
+      <div className="curaa-grid" style={{ position: 'relative', zIndex: 10, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'center' }}>
         
         {/* Left: Typography & Vision */}
         <motion.div style={{ y: yText }}>
@@ -89,7 +89,7 @@ const CuraaVision = () => {
         </motion.div>
 
         {/* Right: Abstract representation of CURAA */}
-        <div style={{ position: 'relative', height: '600px', width: '100%' }}>
+        <div className="curaa-image-container" style={{ position: 'relative', height: '600px', width: '100%' }}>
           <motion.div 
             style={{
               position: 'absolute',

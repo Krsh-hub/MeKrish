@@ -30,7 +30,7 @@ const InsideMyMind = () => {
         overflow: 'hidden'
       }}
     >
-      <div className="container" style={{ position: 'relative', height: '100%', zIndex: 10 }}>
+      <div className="container thoughts-container" style={{ position: 'relative', height: '100%', zIndex: 10 }}>
         
         <div style={{ textAlign: 'center', paddingTop: '10rem', marginBottom: '4rem' }}>
           <h2 style={{ fontSize: '2rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.2em' }}>
@@ -63,6 +63,7 @@ const InsideMyMind = () => {
         {thoughts.map((thought, index) => (
           <motion.div
             key={index}
+            className="thought-bubble"
             initial={{ opacity: 0, scale: 0, top: '50%', left: '50%' }}
             whileInView={{ opacity: 1, scale: 1, top: thought.top, left: thought.left }}
             viewport={{ once: false, margin: "-100px" }}

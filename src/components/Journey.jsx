@@ -23,6 +23,7 @@ const JourneyCard = ({ item, index, total }) => {
   return (
     <motion.div
       ref={cardRef}
+      className="journey-card"
       style={{
         position: 'sticky',
         top: `${20 + index * 5}vh`,
